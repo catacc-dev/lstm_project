@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a character-level LSTM neural network to generate novel SMILES (Simplified Molecular Input Line Entry System) strings. It trains on a dataset of existing molecular structures and learns to generate new, valid chemical molecules by predicting character sequences.
+This project implements a LSTM neural network to generate novel SMILES (Simplified Molecular Input Line Entry System) strings. It trains on a dataset of existing molecular structures and learns to generate new, valid chemical molecules by predicting character sequences.
 
 ## Project Features
 
@@ -57,38 +57,6 @@ scikit-learn
 pip install numpy tensorflow scikit-learn
 ```
 
-## Usage
-
-### Basic Example
-
-```python
-# Initialize the processor with your SMILES dataset
-generator = SmilesToOneHotEncoding(
-    filename="/path/to/smiles_data.txt",
-    size_dataset=100,      # Number of molecules to use
-    min_length=20,         # Minimum sequence length
-    max_length=100         # Maximum sequence length
-)
-
-# Preprocess and get encoded sequences
-sequences = generator.str_to_encode()
-
-# Build LSTM model
-model = generator.build_lstm_model(num_layers_LSTM=2)
-
-# Train the model
-history = generator.train_lstm_model(
-    model, 
-    sequences, 
-    epochs=25, 
-    batch_size=16
-)
-
-# Generate new molecules
-new_molecule = generator.generate_molecule(model)
-print(f"Generated SMILES: {new_molecule}")
-```
-
 ### Configuration Parameters
 
 **SmilesToOneHotEncoding Constructor:**
@@ -112,13 +80,11 @@ print(f"Generated SMILES: {new_molecule}")
 
 ## Data Format
 
-The input SMILES file should contain one SMILES string per line:
+Example of one SMILES string:
 ```
 CC(C)Cc1ccc(cc1)[C@@H](C)C(O)=O
 O=C(O)Cc1ccccc1
 ```
-
-The loader automatically extracts the first column (before space and comma) from each line.
 
 ## Model Architecture
 
@@ -158,22 +124,3 @@ When generating new molecules:
 4. Stop when 'E' token is generated or max_length is reached
 5. Return the generated SMILES string
 
-## Future Enhancements
-
-- [ ] Molecular validity verification (e.g., using RDKit)
-- [ ] Custom sampling strategies (beam search, nucleus sampling)
-- [ ] Variable-length sequence support
-- [ ] Multi-objective generation (optimize for specific molecular properties)
-- [ ] Attention mechanisms for improved long-range dependencies
-- [ ] Bidirectional LSTM variants
-
-## Notes
-
-- The character-to-index mapping uses 1-based indexing from Keras Tokenizer, which is adjusted to 0-based for one-hot encoding
-- Special tokens ('G', 'E', 'A') are learned as part of the vocabulary
-- The model uses pre-padding during generation to maintain consistent input shapes
-- Temperature sampling provides a balance between diversity and validity
-
-## License
-
-This project is part of the LSTM exploration and research initiative.

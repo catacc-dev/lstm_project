@@ -23,15 +23,15 @@ This project implements an LSTM neural network to generate novel SMILES (Simplif
 
 1. **Core Functionality**
 
-- **SMILES Data Processing**: Loads and preprocesses SMILES strings with configurable length filtering
+- *SMILES Data Processing*: Loads and preprocesses SMILES strings with configurable length filtering
 - **Character Translation**: Simplifies vocabulary by translating multi-character symbols (e.g., 'Br' → 'R', 'Cl' → 'L')
-- **Sequence Padding**: Automatically pads/filters sequences with special tokens:
+- *Sequence Padding*: Automatically pads/filters sequences with special tokens:
   - 'G': Start token
   - 'E': End token
   - 'A': Padding character
-- **One-Hot Encoding**: Converts character sequences into a machine-readable one-hot encoded format
-- **LSTM Model Architecture**: Multi-layer LSTM with dropout for robust training
-- **Temperature-Controlled Sampling**: Generates diverse molecules with adjustable randomness in the following manner:
+- *One-Hot Encoding*: Converts character sequences into a machine-readable one-hot encoded format
+- *LSTM Model Architecture*: Multi-layer LSTM with dropout for robust training
+- *Temperature-Controlled Sampling*: Generates diverse molecules with adjustable randomness in the following manner:
   - Start with 'G' token
   - For each position, predict the probability distribution of the next character
   - Sample a character using temperature-controlled multinomial sampling

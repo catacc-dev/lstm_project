@@ -75,20 +75,20 @@ The LSTM model consists of:
 ### Installation
 1. Clone the repo
 ```bash
-   git clone https://github.com/catacc-dev/lstm_project.git
-   cd lstm_project
+git clone https://github.com/catacc-dev/lstm_project.git
+cd lstm_project
 ```
 
 2. Create a virtual environment
 ```bash
-   python3 -m venv venv
-   source venv/bin/activate      # Linux or macOS
-   venv\Scripts\activate         # Windows
+python3 -m venv venv
+source venv/bin/activate      # Linux or macOS
+venv\Scripts\activate         # Windows
 ```
 
 3. Install packages
 ```bash
-   pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Contributing

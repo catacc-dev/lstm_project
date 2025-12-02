@@ -8,7 +8,6 @@ This repository contains a basic LSTM that generates novel chemical molecules.
 1. [About the Project](#about-the-project)
    - [Project Features](#project-features)
    - [Model Architecture](#model-architecture)
-   - [How It Works](#how-it-works)
 2. [Getting Started](#getting-started)
    - [Installation](#installation)
 3. [Contributing](#contributing)

@@ -24,7 +24,7 @@ This project implements an LSTM neural network to generate novel SMILES (Simplif
 1. **Core Functionality**
 
 - *SMILES Data Processing*: Loads and preprocesses SMILES strings with configurable length filtering
-- **Character Translation**: Simplifies vocabulary by translating multi-character symbols (e.g., 'Br' → 'R', 'Cl' → 'L')
+- *Character Translation*: Simplifies vocabulary by translating multi-character symbols (e.g., 'Br' → 'R', 'Cl' → 'L')
 - *Sequence Padding*: Automatically pads/filters sequences with special tokens:
   - 'G': Start token
   - 'E': End token

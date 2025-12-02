@@ -1,0 +1,4 @@
+# Core dependencies for the neural text classification model
+numpy>=1.19.0,<1.24.0
+tensorflow>=2.8.0
+scikit-learn>=1.0.0
